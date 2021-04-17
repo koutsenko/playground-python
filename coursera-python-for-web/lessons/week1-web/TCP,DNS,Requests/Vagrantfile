@@ -1,0 +1,9 @@
+$script = <<SCRIPT
+    yum update
+    yum -y install tcpdump nc telnet bind-utils nano
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.provision "shell", inline: $script
+end

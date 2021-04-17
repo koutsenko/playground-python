@@ -1,0 +1,6 @@
+.vagrant/
+.vscode/
+.idea/
+.ipynb_checkpoints/
+*.pyc
+.env

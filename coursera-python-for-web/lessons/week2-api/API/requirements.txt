@@ -1,0 +1,5 @@
+bs4==0.0.1
+ipykernel==5.4.3
+lxml==4.6.2
+requests==2.25.1
+vk==2.0.2
