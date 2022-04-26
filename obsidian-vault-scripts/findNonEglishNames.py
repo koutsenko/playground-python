@@ -1,9 +1,13 @@
 ﻿import os
+from filter import is_filtered_dir, filter_dirs
 
 
 def find_wrong(path):
     wrong = []
     for root, dirs, files in os.walk(path):
+        if is_filtered_dir(root):
+            continue
+        dirs = filter_dirs(dirs)
         for file in files:
             if not file.isascii():
                 wrong.append(os.path.join(root, file))
@@ -16,10 +20,9 @@ def find_wrong(path):
 
 def main():
     wrong = find_wrong("D:\\notes\\")
-    print(f"Found {len(wrong)} names:")
     for w in wrong:
         print(w)
-    print("Done!")
+    print(f"Found {len(wrong)} names")
 
 
 if __name__ == "__main__":
